@@ -1,5 +1,30 @@
 {
+  "name": "micro-videos-admin",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/josemoura212/FC-codeflix-micro-admin.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/josemoura212/FC-codeflix-micro-admin/issues"
+  },
+  "homepage": "https://github.com/josemoura212/FC-codeflix-micro-admin#readme",
+  "description": "",
   "devDependencies": {
-    "prettier": "^3.5.3"
+    "@swc/cli": "^0.7.7",
+    "@swc/core": "^1.12.5",
+    "@swc/jest": "^0.2.38",
+    "@types/jest": "^30.0.0",
+    "create-jest": "^30.0.2",
+    "jest": "^30.0.2",
+    "ts-node": "^10.9.2",
+    "typescript": "^5.8.3"
   }
 }
