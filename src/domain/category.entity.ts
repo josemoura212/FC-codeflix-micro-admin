@@ -31,7 +31,28 @@ export class Category {
     return new Category(props);
   }
 
-  update(props: Partial<CategoryContructorProps>): Category {
-    return new Category({ ...this, ...props });
+  changeName(name: string): void {
+    this.name = name;
+  }
+  changeDescription(description: string): void {
+    this.description = description;
+  }
+
+  active(): void {
+    this.is_active = true;
+  }
+
+  deactivate(): void {
+    this.is_active = false;
+  }
+
+  toJSON() {
+    return {
+      category_id: this.category_id,
+      name: this.name,
+      description: this.description,
+      is_active: this.is_active,
+      created_at: this.created_at,
+    };
   }
 }
