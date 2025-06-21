@@ -1,4 +1,5 @@
 import { Uuid } from "../../shared/domain/velue-objects/uuid-vo";
+import { CategoryValidatorFactory } from "./category-validator";
 
 export type CategoryContructorProps = {
   category_id?: Uuid;
@@ -46,6 +47,11 @@ export class Category {
 
   deactivate(): void {
     this.is_active = false;
+  }
+
+  static validate(entity: Category) {
+    const validator = CategoryValidatorFactory.create();
+    return validator.validate(entity);
   }
 
   toJSON() {
