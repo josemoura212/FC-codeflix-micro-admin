@@ -1,6 +1,7 @@
 import { before } from "lodash";
 import { Uuid } from "../../../shared/domain/velue-objects/uuid-vo";
 import { Category } from "../category-entity";
+import { EntityValidationError } from "../../../shared/domain/validators/validation.error";
 
 describe("Category Unit Tests", () => {
   let validateSpy: jest.SpyInstance;
@@ -144,5 +145,17 @@ describe("Category Unit Tests", () => {
     category.deactivate();
     expect(category.is_active).toBe(false);
     expect(validateSpy).toHaveBeenCalledTimes(1);
+  });
+});
+
+describe("Category Validator", () => {
+  describe("Create Command", () => {
+    test("should validate a invalid name", () => {
+      expect(() => {
+        Category.create({
+          name: "",
+        });
+      }).toThrow(new EntityValidationError({ name: ["Name should not be empty"] }));
+    })
   });
 });
