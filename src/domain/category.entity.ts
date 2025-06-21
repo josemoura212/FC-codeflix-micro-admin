@@ -38,7 +38,7 @@ export class Category {
     this.description = description;
   }
 
-  active(): void {
+  activate(): void {
     this.is_active = true;
   }
 
