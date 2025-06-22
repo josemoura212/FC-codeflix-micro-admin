@@ -38,7 +38,7 @@ export abstract class InMemoryRepository<E extends Entity, EntityId extends Valu
     abstract getEntity(): new (...args: any[]) => E;
 }
 
-export abstract class SearchableInMemoryRepository<
+export abstract class InMemorySearchableRepository<
     E extends Entity,
     EntityId extends ValueObject,
     Filter = string
