@@ -2,7 +2,7 @@ import { EntityValidationError } from "../../../../../shared/domain/validators/v
 import { CategoryModel } from "../category.model";
 import { CategoryModelMapper } from "../category-model-mapper";
 import { Category } from "../../../../domain/category.entity";
-import { Uuid } from "../../../../../shared/domain/velue-objects/uuid.vo";
+import { Uuid } from "../../../../../shared/domain/value-objects/uuid.vo";
 import { setupSequelize } from "../../../../../shared/infra/testing/helpers";
 
 describe("CategoryModelMapper Integration Tests", () => {

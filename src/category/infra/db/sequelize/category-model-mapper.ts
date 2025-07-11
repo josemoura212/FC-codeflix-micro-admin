@@ -1,9 +1,9 @@
-import { Uuid } from "../../../../shared/domain/velue-objects/uuid.vo";
+import { Uuid } from "../../../../shared/domain/value-objects/uuid.vo";
 import { Category } from "../../../domain/category.entity";
 import { CategoryModel } from "./category.model";
 
-export class CategoryModelMapper{
-    static toModel(entity: Category): CategoryModel{
+export class CategoryModelMapper {
+    static toModel(entity: Category): CategoryModel {
         return CategoryModel.build({
             category_id: entity.category_id.id,
             name: entity.name,

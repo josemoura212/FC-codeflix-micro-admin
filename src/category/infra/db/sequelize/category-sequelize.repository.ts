@@ -1,6 +1,6 @@
 import { Op } from "sequelize";
-import { NotFoundError } from "../../../../shared/domain/erros/not-found.error";
-import { Uuid } from "../../../../shared/domain/velue-objects/uuid.vo";
+import { NotFoundError } from "../../../../shared/domain/errors/not-found.error";
+import { Uuid } from "../../../../shared/domain/value-objects/uuid.vo";
 import { Category } from "../../../domain/category.entity";
 import { CategorySearchParams, CategorySearchResult, ICategoryRepository } from "../../../domain/category.repository";
 import { CategoryModel } from "./category.model";
@@ -56,8 +56,8 @@ export class CategorySequelizeRepository implements ICategoryRepository {
     }
     async findById(entity_id: Uuid): Promise<Category | null> {
         const model = await this._get(entity_id.id);
-        
-        return model? CategoryModelMapper.toEntity(model) : null;
+
+        return model ? CategoryModelMapper.toEntity(model) : null;
     }
     async findAll(): Promise<Category[]> {
         const models = await this.categoryModel.findAll();
