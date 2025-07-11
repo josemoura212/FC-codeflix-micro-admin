@@ -1,9 +1,9 @@
 import { Sequelize } from "sequelize-typescript";
 import { CategoryModel } from "../category.model";
 import { CategorySequelizeRepository } from "../category-sequelize.repository";
-import { Category } from "../../../../domain/category.entity";
 import { Uuid } from "../../../../../shared/domain/velue-objects/uuid.vo";
 import { NotFoundError } from "../../../../../shared/domain/erros/not-found.error";
+import { Category } from "../../../../domain/category.entity";
 
 describe("CategorySequelizeRepository Integration Test", () => {
     let sequelize;
