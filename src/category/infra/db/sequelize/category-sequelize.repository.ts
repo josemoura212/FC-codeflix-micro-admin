@@ -14,12 +14,12 @@ export class CategorySequelizeRepository implements ICategoryRepository {
     }
 
     async insert(entity: Category): Promise<void> {
-        const model = CategoryModelMapper.toModel(entity);
-        await this.categoryModel.create(model.toJSON())
+        const modelProps = CategoryModelMapper.toModel(entity);
+        await this.categoryModel.create(modelProps.toJSON())
     }
     async bulkInsert(entities: Category[]): Promise<void> {
-        const models = entities.map(entity => CategoryModelMapper.toModel(entity));
-        await this.categoryModel.bulkCreate(models.map(model => model.toJSON()));
+        const modelsProps = entities.map(entity => CategoryModelMapper.toModel(entity).toJSON());
+        await this.categoryModel.bulkCreate(modelsProps);
     }
     async update(entity: Category): Promise<void> {
         const id = entity.category_id.id;
@@ -27,14 +27,14 @@ export class CategorySequelizeRepository implements ICategoryRepository {
         if (!model) {
             throw new NotFoundError(id, this.getEntity());
         }
-        const modelToUpdate = CategoryModelMapper.toModel(entity);
+        const modelProps = CategoryModelMapper.toModel(entity);
         // model.name = entity.name;
         // model.description = entity.description;
         // model.is_active = entity.is_active;
         // model.created_at = entity.created_at;
         // await model.save();
 
-        this.categoryModel.update(modelToUpdate.toJSON(), {
+        this.categoryModel.update(modelProps.toJSON(), {
             where: { category_id: id }
         });
     }
@@ -86,13 +86,7 @@ export class CategorySequelizeRepository implements ICategoryRepository {
         });
 
         return new CategorySearchResult({
-            items: models.map((model) => new Category({
-                category_id: new Uuid(model.category_id),
-                name: model.name,
-                description: model.description,
-                is_active: model.is_active,
-                created_at: model.created_at,
-            })),
+            items: models.map((model) => CategoryModelMapper.toEntity(model)),
             total: count,
             current_page: props.page,
             per_page: props.per_page,
