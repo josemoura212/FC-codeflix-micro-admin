@@ -1,5 +1,5 @@
-import { Category } from "../../../domain/category-entity";
-import { CategoryInMemoryRepository } from "./category-in-memory-repository";
+import { Category } from "../../../domain/category.entity";
+import { CategoryInMemoryRepository } from "./category-in-memory.repository";
 
 describe("CategoryInMemoryRepository", () => {
     let repository: CategoryInMemoryRepository;

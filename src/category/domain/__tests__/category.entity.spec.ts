@@ -1,6 +1,6 @@
 import { before } from "lodash";
-import { Uuid } from "../../../shared/domain/velue-objects/uuid-vo";
-import { Category } from "../category-entity";
+import { Uuid } from "../../../shared/domain/velue-objects/uuid.vo";
+import { Category } from "../category.entity";
 
 describe("Category Unit Tests", () => {
   let validateSpy: jest.SpyInstance;

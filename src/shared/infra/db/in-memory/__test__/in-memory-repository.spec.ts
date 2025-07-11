@@ -1,6 +1,6 @@
 import { Entity } from "../../../../domain/entity";
 import { NotFoundError } from "../../../../domain/erros/not-found.error";
-import { Uuid } from "../../../../domain/velue-objects/uuid-vo";
+import { Uuid } from "../../../../domain/velue-objects/uuid.vo";
 import { InMemoryRepository } from "../in-memory-repository";
 
 type StubEntityConstructor = {

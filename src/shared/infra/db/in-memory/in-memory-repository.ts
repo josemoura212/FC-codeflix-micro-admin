@@ -1,6 +1,6 @@
 import { Entity } from "../../../domain/entity";
 import { NotFoundError } from "../../../domain/erros/not-found.error";
-import { IRepository, ISearchableRepository } from "../../../domain/repository/repository-interface";
+import { IRepository, ISearchableRepository } from "../../../domain/repository/repository.interface";
 import { SearchParams, SortDirection } from "../../../domain/repository/search-params";
 import { SearchResult } from "../../../domain/repository/search-result";
 import { ValueObject } from "../../../domain/value-object";

@@ -1,9 +1,9 @@
 import { Op } from "sequelize";
 import { NotFoundError } from "../../../../shared/domain/erros/not-found.error";
-import { Uuid } from "../../../../shared/domain/velue-objects/uuid-vo";
-import { Category } from "../../../domain/category-entity";
-import { CategorySearchParams, CategorySearchResult, ICategoryRepository } from "../../../domain/category-repository";
-import { CategoryModel } from "./category-model";
+import { Uuid } from "../../../../shared/domain/velue-objects/uuid.vo";
+import { Category } from "../../../domain/category.entity";
+import { CategorySearchParams, CategorySearchResult, ICategoryRepository } from "../../../domain/category.repository";
+import { CategoryModel } from "./category.model";
 
 export class CategorySequelizeRepository implements ICategoryRepository {
     sortableFields: string[] = ["name", "created_at"];
