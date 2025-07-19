@@ -1,8 +1,11 @@
 import { NotFoundError } from "../../../../../shared/domain/errors/not-found.error";
-import { InvalidUuidError, Uuid } from "../../../../../shared/domain/value-objects/uuid.vo";
+import {
+  InvalidUuidError,
+  Uuid,
+} from "../../../../../shared/domain/value-objects/uuid.vo";
 import { Category } from "../../../../domain/category.entity";
 import { CategoryInMemoryRepository } from "../../../../infra/db/in-memory/category-in-memory.repository";
-import { GetCategoryUseCase } from "../../get-category.use-case";
+import { GetCategoryUseCase } from "../get-category.use-case";
 
 describe("GetCategoryUseCase Unit Tests", () => {
   let useCase: GetCategoryUseCase;
@@ -14,9 +17,9 @@ describe("GetCategoryUseCase Unit Tests", () => {
   });
 
   it("should throws error when entity not found", async () => {
-    await expect(() => useCase.execute({ id: 'fake id' })).rejects.toThrow(
-        new InvalidUuidError()
-      );
+    await expect(() => useCase.execute({ id: "fake id" })).rejects.toThrow(
+      new InvalidUuidError()
+    );
 
     const uuid = new Uuid();
     await expect(() => useCase.execute({ id: uuid.id })).rejects.toThrow(
