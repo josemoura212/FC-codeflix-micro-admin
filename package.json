@@ -3,7 +3,11 @@
   "version": "1.0.0",
   "main": "index.js",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "test:coverage": "jest --coverage",
+    "tsc:check": "tsc --noEmit",
+    "test:ci": "npm run tsc:check && npm run test:coverage",
+    "verify": "npm run tsc:check && npm run test:coverage"
   },
   "repository": {
     "type": "git",
