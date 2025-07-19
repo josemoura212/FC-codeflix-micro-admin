@@ -1,5 +1,5 @@
 import { Chance } from 'chance';
-import { CategoryFakeBuilder } from '../category-fake-builder';
+import { CategoryFakeBuilder } from '../category-fake.builder';
 import { Uuid } from '../../../shared/domain/value-objects/uuid.vo';
 
 describe('CategoryFakerBuilder Unit Tests', () => {
