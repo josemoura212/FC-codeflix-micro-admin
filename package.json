@@ -14,17 +14,19 @@
     "start:prod": "node dist/main",
     "lint": "eslint \"{src,apps,libs,test}/**/*.ts\" --fix",
     "test": "jest",
+    "tsc:check": "tsc --noEmit",
     "test:watch": "jest --watch",
     "test:cov": "jest --coverage",
     "test:debug": "node --inspect-brk -r tsconfig-paths/register -r ts-node/register node_modules/.bin/jest --runInBand",
     "test:e2e": "jest --config ./test/jest-e2e.json",
     "lint:prettier:check": "prettier --check ./src",
-		"lint:prettier:fix": "prettier --write ./src",
-		"lint:eslint:check": "eslint ./src --max-warnings=0"
+    "lint:prettier:fix": "prettier --write ./src",
+    "lint:eslint:check": "eslint ./src --max-warnings=0"
   },
   "dependencies": {
     "@nestjs/common": "^11.0.1",
     "@nestjs/core": "^11.0.1",
+    "@nestjs/mapped-types": "*",
     "@nestjs/platform-express": "^11.0.1",
     "class-validator": "^0.14.2",
     "dotenv": "^17.2.0",
