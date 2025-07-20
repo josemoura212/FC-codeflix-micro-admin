@@ -1,8 +1,8 @@
-import type { Config } from "jest";
+import type { Config } from 'jest';
 
 const config: Config = {
   clearMocks: true,
-  
+
   // Coverage configuration
   collectCoverage: true,
   collectCoverageFrom: [
@@ -15,14 +15,8 @@ const config: Config = {
     '!<rootDir>/**/*.int-spec.ts',
     '!<rootDir>/**/testing/**',
   ],
-  coverageDirectory: 'coverage',
-  coverageProvider: "v8",
-  coverageReporters: [
-    'text',
-    'lcov',
-    'html',
-    'clover'
-  ],
+  coverageProvider: 'v8',
+  coverageReporters: ['text', 'lcov', 'html', 'clover'],
   coverageThreshold: {
     global: {
       branches: 80,
@@ -32,21 +26,17 @@ const config: Config = {
     },
   },
 
-  rootDir: "./src",
-  
-  setupFilesAfterEnv: [
-    "./shared/infra/testing/expect-helpers.ts",
-  ],
+  rootDir: './src',
 
-  testMatch: [
-    "**/__tests__/**/*.spec.ts",
-    "**/__test__/**/*.spec.ts",
-    "**/?(*.)+(spec|test|int-spec).ts"
-  ],
+  setupFilesAfterEnv: ['./core/shared/infra/testing/expect-helpers.ts'],
 
+  moduleFileExtensions: ['js', 'json', 'ts'],
+  testRegex: '.*\\..*spec\\.ts$',
   transform: {
-    "^.+\\.(t|j)sx?$": "@swc/jest",
+    '^.+\\.(t|j)s$': '@swc/jest',
   },
+  coverageDirectory: '../coverage',
+  testEnvironment: 'node',
 };
 
 export default config;
