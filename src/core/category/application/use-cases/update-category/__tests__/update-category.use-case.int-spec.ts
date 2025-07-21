@@ -128,13 +128,13 @@ describe('UpdateCategoryUseCase Integration Tests', () => {
         input: {
           id: entity.category_id.id,
           name: 'test',
-          description: null,
+          description: '',
           is_active: false,
         },
         expected: {
           id: entity.category_id.id,
           name: 'test',
-          description: null,
+          description: '',
           is_active: false,
           created_at: entity.created_at,
         },
