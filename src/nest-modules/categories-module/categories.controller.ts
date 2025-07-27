@@ -16,10 +16,8 @@ import { DeleteCategoryUseCase } from '@core/category/application/use-cases/dele
 import { GetCategoryUseCase } from '@core/category/application/use-cases/get-category/get-category.use-case';
 import { ListCategoriesUseCase } from '@core/category/application/use-cases/list-categories/list-categories.use-case';
 
-
 @Controller('categories')
 export class CategoriesController {
-
   @Inject(CreateCategoryUseCase)
   private createUseCase: CreateCategoryUseCase;
 
@@ -36,7 +34,9 @@ export class CategoriesController {
   private listUseCase: ListCategoriesUseCase;
 
   @Post()
-  create(@Body() createCategoryDto: CreateCategoryDto) {}
+  create(@Body() createCategoryDto: CreateCategoryDto) {
+    return this.createUseCase.execute(createCategoryDto);
+  }
 
   @Get()
   findAll() {}
