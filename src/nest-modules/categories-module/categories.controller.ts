@@ -7,6 +7,7 @@ import {
   Param,
   Delete,
   Inject,
+  ParseUUIDPipe,
 } from '@nestjs/common';
 import { CreateCategoryDto } from './dto/create-category.dto';
 import { UpdateCategoryDto } from './dto/update-category.dto';
@@ -41,17 +42,23 @@ export class CategoriesController {
     return CategoriesController.serialize(output);
   }
 
+  @Patch(':id')
+  async update(
+    @Param('id', new ParseUUIDPipe({ errorHttpStatusCode: 422 })) id: string,
+    @Body() updateCategoryDto: UpdateCategoryDto,
+  ) {
+    const output = await this.updateUseCase.execute({
+      ...updateCategoryDto,
+      id,
+    });
+    return CategoriesController.serialize(output);
+  }
+
   @Get()
   findAll() {}
 
   @Get(':id')
   findOne(@Param('id') id: string) {}
-
-  @Patch(':id')
-  update(
-    @Param('id') id: string,
-    @Body() updateCategoryDto: UpdateCategoryDto,
-  ) {}
 
   @Delete(':id')
   remove(@Param('id') id: string) {}
