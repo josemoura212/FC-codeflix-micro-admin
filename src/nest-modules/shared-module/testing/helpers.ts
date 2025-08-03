@@ -14,7 +14,7 @@ export function startApp() {
     }).compile();
 
     const sequelize = moduleFixture.get<Sequelize>(getConnectionToken());
-    await sequelize.sync({ force: true });
+    // await sequelize.sync({ force: true });
 
     _app = moduleFixture.createNestApplication();
     applyGlobalConfig(_app);
