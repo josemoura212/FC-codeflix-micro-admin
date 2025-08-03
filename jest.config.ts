@@ -1,42 +1,37 @@
 import type { Config } from 'jest';
 
 const config: Config = {
-  clearMocks: true,
-
-  // Coverage configuration
-  collectCoverage: true,
-  collectCoverageFrom: [
-    '<rootDir>/**/*.ts',
-    '!<rootDir>/**/*.d.ts',
-    '!<rootDir>/**/__tests__/**',
-    '!<rootDir>/**/__test__/**',
-    '!<rootDir>/**/*.spec.ts',
-    '!<rootDir>/**/*.test.ts',
-    '!<rootDir>/**/*.int-spec.ts',
-    '!<rootDir>/**/testing/**',
-  ],
-  coverageProvider: 'v8',
-  coverageReporters: ['text', 'lcov', 'html', 'clover'],
-  coverageThreshold: {
-    global: {
-      branches: 80,
-      functions: 80,
-      lines: 80,
-      statements: 80,
-    },
-  },
-
-  rootDir: './src',
-
-  setupFilesAfterEnv: ['./core/shared/infra/testing/expect-helpers.ts'],
-
   moduleFileExtensions: ['js', 'json', 'ts'],
+  rootDir: 'src',
   testRegex: '.*\\..*spec\\.ts$',
   transform: {
     '^.+\\.(t|j)s$': '@swc/jest',
   },
+  collectCoverageFrom: ['**/*.(t|j)s'],
   coverageDirectory: '../coverage',
+  coveragePathIgnorePatterns: [
+    '/node_modules/',
+    '.interface.ts',
+    '-interface.ts',
+    'shared/testing',
+    'shared-module/testing',
+    'validator-rules.ts',
+    '-fixture.ts',
+    '.input.ts',
+    '.d.ts',
+  ],
+  coverageThreshold: {
+    global: {
+      statements: 80,
+      branches: 80,
+      functions: 80,
+      lines: 80,
+    },
+  },
   testEnvironment: 'node',
+  setupFilesAfterEnv: ['./core/shared/infra/testing/expect-helpers.ts'],
+  coverageProvider: 'v8',
+  clearMocks: true,
 };
 
 export default config;
