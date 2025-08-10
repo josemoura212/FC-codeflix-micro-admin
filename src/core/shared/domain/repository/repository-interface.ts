@@ -1,4 +1,3 @@
-import { isNumberString } from 'class-validator';
 import { Entity } from '../entity';
 import { ValueObject } from '../value-object';
 import { SearchParams } from './search-params';

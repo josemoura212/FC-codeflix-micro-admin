@@ -1,4 +1,4 @@
-import { isEqual } from 'lodash';
+import isEqual from 'lodash/isEqual';
 
 export abstract class ValueObject {
   public equals(vo: this): boolean {
@@ -6,10 +6,10 @@ export abstract class ValueObject {
       return false;
     }
 
-    if (this.constructor !== vo.constructor) {
+    if (vo.constructor.name !== this.constructor.name) {
       return false;
     }
 
-    return isEqual(this, vo);
+    return isEqual(vo, this);
   }
 }

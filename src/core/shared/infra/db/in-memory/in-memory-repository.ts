@@ -3,7 +3,7 @@ import { NotFoundError } from '../../../domain/errors/not-found.error';
 import {
   IRepository,
   ISearchableRepository,
-} from '../../../domain/repository/repository.interface';
+} from '../../../domain/repository/repository-interface';
 import {
   SearchParams,
   SortDirection,
