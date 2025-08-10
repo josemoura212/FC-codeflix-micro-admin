@@ -1,8 +1,6 @@
 import { join } from 'path';
 import { Sequelize } from 'sequelize';
-import { SequelizeStorage } from 'umzug';
-import { UmzugOptions } from 'umzug/lib/types';
-import { Umzug } from 'umzug/lib/umzug';
+import { SequelizeStorage, Umzug, UmzugOptions } from 'umzug';
 
 export function migrator(
   sequelize: Sequelize,
