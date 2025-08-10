@@ -4,7 +4,10 @@ import { SequelizeStorage } from 'umzug';
 import { UmzugOptions } from 'umzug/lib/types';
 import { Umzug } from 'umzug/lib/umzug';
 
-export function migrator(sequelize: Sequelize, options: Partial<UmzugOptions>) {
+export function migrator(
+  sequelize: Sequelize,
+  options?: Partial<UmzugOptions>,
+) {
   return new Umzug({
     migrations: {
       glob: [
