@@ -3,7 +3,7 @@ import { Uuid } from '../../../../shared/domain/value-objects/uuid.vo';
 import {
   InMemoryRepository,
   InMemorySearchableRepository,
-} from '../../../../shared/infra/db/in-memory/in-memory-repository';
+} from '../../../../shared/infra/db/in-memory/in-memory.repository';
 import { Category } from '../../../domain/category.aggregate';
 import {
   CategoryFilter,
